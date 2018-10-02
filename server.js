@@ -11,6 +11,7 @@ app.prepare()
   .then(() => {
     const server = express();
 
+    // Define custom routes for server side clean urls
     server.get('/:eventName', (req, res) => {
       const actualPage = '/event';
       const queryParams = { eventName: req.params.eventName };
@@ -36,7 +37,7 @@ app.prepare()
     })
 
     server.get('/:eventName/location', (req, res) => {
-      const actualPage = '/events/location';
+      const actualPage = '/event/location';
       const queryParams = { eventName: req.params.eventName };
       app.render(req, res, actualPage, queryParams)
     })
