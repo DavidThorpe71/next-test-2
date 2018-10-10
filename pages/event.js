@@ -1,16 +1,19 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-const event = (props) => {
+const event = props => {
   return (
     <div>
       {JSON.stringify(props)}
       <ul>
         <li>
-          <Link href={`/${props.query.eventName}/agenda`}>
+          <Link
+            href={`?eventName=${props.query.eventName}/agenda`}
+            as={`/${props.query.eventName}/agenda`}
+          >
             <a>Agenda</a>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link href={`/${props.query.eventName}/attendees`}>
             <a>attendees</a>
           </Link>
@@ -24,7 +27,7 @@ const event = (props) => {
           <Link href={`/${props.query.eventName}/location`}>
             <a>Location</a>
           </Link>
-        </li>
+        </li>*/}
       </ul>
       <Link href={`/`}>
         <a>HOME</a>

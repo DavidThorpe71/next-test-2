@@ -3,6 +3,8 @@
 const express = require("express");
 const next = require("next");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const proxy = require("express-http-proxy");
 
 const dev = true;
 const app = next({ dev });
@@ -13,6 +15,22 @@ app
   .then(() => {
     const server = express();
     server.use(cookieParser());
+
+    server.use(
+      "/graphql",
+      proxy("http://localhost:4000", {
+        proxyReqPathResolver: function(req) {
+          return require("url").parse("/graphql" + req.url).path;
+        }
+      })
+    );
+
+    // server.use('/static', express.static('static'))
+    // var corsOptions = {
+    //   origin: "http://localhost:7777",
+    //   credentials: true // <-- REQUIRED backend setting
+    // };
+    // server.use(cors(corsOptions));
     // Define custom routes for server side clean urls
     server.get("/signup", (req, res) => {
       const actualPage = "/signup";

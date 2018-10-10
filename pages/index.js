@@ -1,5 +1,5 @@
-import React from 'react';
-import PostLink from '../components/PostLink';
+import React from "react";
+import PostLink from "../components/PostLink";
 
 const index = () => {
   return (
