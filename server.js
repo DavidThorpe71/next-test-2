@@ -14,16 +14,16 @@ app
   .prepare()
   .then(() => {
     const server = express();
-    server.use(cookieParser());
+    // server.use(cookieParser());
 
-    server.use(
-      "/graphql",
-      proxy("http://localhost:4000", {
-        proxyReqPathResolver: function(req) {
-          return require("url").parse("/graphql" + req.url).path;
-        }
-      })
-    );
+    // server.use(
+    //   "/graphql",
+    //   proxy("http://localhost:4000", {
+    //     proxyReqPathResolver: function(req) {
+    //       return require("url").parse("/graphql" + req.url).path;
+    //     }
+    //   })
+    // );
 
     // server.use('/static', express.static('static'))
     // var corsOptions = {
