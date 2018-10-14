@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "pull": "git pull origin master",
+    "start": "node server.js",
     "test": "NODE_ENV=test jest --watch"
   },
   "keywords": [],
