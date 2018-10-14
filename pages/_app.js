@@ -1,7 +1,7 @@
-import App, { Container } from "next/app";
-import { ApolloProvider } from "react-apollo";
+import App, { Container } from 'next/app';
+import { ApolloProvider } from 'react-apollo';
 
-import withData from "../lib/withData";
+import withData from '../lib/withData';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
