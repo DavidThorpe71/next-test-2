@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const dev = true;
 const app = next({ dev });
 const handle = app.getRequestHandler();
+const cssEscape = require('css.escape');
 
 app
   .prepare()
